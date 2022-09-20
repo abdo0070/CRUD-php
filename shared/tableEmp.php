@@ -6,6 +6,7 @@
     <th>ID</th>
     <th>Name</th>
     <th>Salary</th>
+    <th>Phone</th>
     <th>Department</th>
     <th>City</th>
     <th>Update</th>
@@ -18,6 +19,7 @@
         <td> <?=$data['id']?> </td>
         <td> <?=$data['name']?> </td>
         <td> <?=$data['salary']?> </td>
+        <td> <?=$data['phone']?> </td>
         <td> <?=$data['department']?> </td>
         <td> <?=$data['city']?> </td>
 

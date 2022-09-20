@@ -1,23 +1,25 @@
 <?php
 
-if ($_GET['edit']){
-    $id = $_GET['edit'];
-    // select that id from query
-    $select_sp = "SELECT * FROM `employees` WHERE `id` = $id";
-    $emp = mysqli_query($connection,$select_sp);
+$update = false;
 
-    $name = "";
-    $phone = "";
-    $salary = NULL;
-    $department = "";
-    $city = "";
+$city = "";
+$name = "";
+$phone = "";
+$department = "";
+$salary = "";
+
+if (isset($_GET['edit'])){
+    $id = $_GET['edit'];
+    // select that id from query      
     $update = true;
-    foreach($emp as $data){
-        /*$emp['name'];
-        $phone = $emp['phone'];
-        $salary = $emp['salary'];
-        $department = $emp['department'];
-        $city = $emp['city'];*/
-    }
-}
-?>
+
+$select_sp = "SELECT * FROM `employees` WHERE `id` = $id";
+$oneEmployee = mysqli_query($connection,$select_sp);
+$emp = mysqli_fetch_assoc($oneEmployee);
+$name = $emp['name'];
+$phone = $emp['phone'];
+$salary = $emp['salary'];
+$department = $emp['department'];
+$city = $emp['city'];
+
+}?>
