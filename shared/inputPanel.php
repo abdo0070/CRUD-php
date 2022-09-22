@@ -7,8 +7,6 @@ $allDepartment = mysqli_query($connection,$select);
 
 
 
-
-
 if (isset($_POST['btnSend'])){
 
     $city = $_POST['city'];
@@ -33,14 +31,14 @@ if (isset($_POST['btnSend'])){
             $update = false;
             // go back to the list page 
             header('Location: http://localhost/session3/employee/list.php');
+            header("location: /session3/index.php");
         }
         else{
             $insert = "INSERT INTO `employees` VALUES(null,'$name' , $department , '$city' ,'$salary','$phone')";
             mysqli_query($connection,$insert);
+            header("location: /session3/index.php");
         }
       }
-    
-   
 }
 
 ?>
@@ -50,9 +48,9 @@ if (isset($_POST['btnSend'])){
   <div class="form-group">
     <label for="">Full Name</label>
     <?php if($name != NULL) { ?>
-    <input name = "name" value =<?=$name?> type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> <?php } ?>
+    <input name = "name" value =<?=$name?> type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" > <?php } ?>
     <?php if($update == NULL) { ?>
-    <input name = "name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> <?php } ?>
+    <input name = "name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name"> <?php } ?>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
